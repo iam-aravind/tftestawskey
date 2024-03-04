@@ -37,8 +37,8 @@ jobs:
         run: |
           echo "Private Key: ${{ steps.private_key.outputs.value }}" > private_key.pem
         shell: bash
-        env:
-          TF_STATE: ${{ github.workspace }}/terraform.tfstate
+        # env:
+        #   TF_STATE: ${{ github.workspace }}/terraform.tfstate
 
       - name: Upload Private Key
         uses: actions/upload-artifact@v2
