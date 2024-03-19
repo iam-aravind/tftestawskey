@@ -7,7 +7,7 @@ rsa_bits  = 4096
 
 output "private_key_pem" {
   value = tls_private_key.rsa.private_key_pem
-  sensitive = false
+  sensitive = true
 }
 
 data "tls_public_key" "rsa" {
@@ -16,5 +16,5 @@ data "tls_public_key" "rsa" {
 
 output "public_key_pem" {
   value     = data.tls_public_key.rsa.public_key_pem
-  sensitive = false
+  sensitive = true
 }
