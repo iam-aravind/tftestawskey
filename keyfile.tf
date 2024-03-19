@@ -10,7 +10,11 @@ output "private_key_pem" {
   sensitive = true
 }
 
-output "private_key_pem" {
-  value = tls_private_key.rsa.public_key_pub
+data "tls_public_key" "rsa" {
+  private_key_pem = tls_private_key.rsa.private_key_pem
+}
+
+output "public_key_pem" {
+  value     = data.tls_public_key.rsa.public_key_pem
   sensitive = true
 }
